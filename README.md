@@ -1,3 +1,3 @@
 # PowerYou
 A Visual Art App
-Names: Pranavsai Gandikota, 
+Names: Pranavsai Gandikota, Arwa Arshad Ali, 

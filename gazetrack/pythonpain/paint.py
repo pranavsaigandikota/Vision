@@ -19,6 +19,7 @@ def draw_menu():
     pygame.draw.rect(screen, 'gray', [0, 0, WIDTH, 70])
     pygame.draw.line(screen, 'black', (0, 70), (WIDTH, 70), 3)
 
+    # Brush Buttons
     xl_brush = pygame.draw.rect(screen, 'black', [10, 10, 50, 50])
     pygame.draw.circle(screen, 'white', (35, 35), 20)
     l_brush = pygame.draw.rect(screen, 'black', [70, 10, 50, 50])
@@ -28,8 +29,16 @@ def draw_menu():
     s_brush = pygame.draw.rect(screen, 'black', [190, 10, 50, 50])
     pygame.draw.circle(screen, 'white', (215, 35), 5)
 
-    brush_list = [xl_brush, l_brush, m_brush, s_brush]
+    # Clear Button
+    clear_button = pygame.draw.rect(screen, 'black', [250, 10, 70, 50])
+    font = pygame.font.SysFont(None, 24)
+    clear_text = font.render('Clear', True, 'white')
+    text_rect = clear_text.get_rect(center=clear_button.center)
+    screen.blit(clear_text, text_rect)
 
+    brush_list = [xl_brush, l_brush, m_brush, s_brush, clear_button]
+
+    # Color Buttons
     blue = pygame.draw.rect(screen, (0, 0, 255), [WIDTH - 35, 10, 25, 25])    
     red = pygame.draw.rect(screen, (255, 0, 0), [WIDTH - 35, 35, 25, 25])   
     green = pygame.draw.rect(screen, (0, 255, 0), [WIDTH - 60, 10, 25, 25])  
@@ -43,7 +52,7 @@ def draw_menu():
     rgb_list = [(0, 0, 255), (255, 0, 0), (0, 255, 0), (255, 255, 0),
                 (0, 255, 255), (255, 0, 255), (255, 255, 255), (0, 0, 0)]
     
-    return brush_list, color_rect, rgb_list
+    return brush_list, color_rect, rgb_list, clear_button
 
 def draw_painting(paints):
     for paint in paints:
@@ -112,7 +121,7 @@ while run:
     if mouse[1] > 70:
         pygame.draw.circle(screen, active_color, mouse, active_size)
 
-    brushes, colors, rgbs = draw_menu()
+    brushes, colors, rgbs, clear_button = draw_menu()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -126,9 +135,16 @@ while run:
                 threading.Thread(target=listen_for_command).start()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
+            # Check if any brush button is clicked
             for i in range(len(brushes)):
                 if brushes[i].collidepoint(event.pos):
-                    active_size = 20 - (i * 5)
+                    if i < 4:  # First four are brush sizes
+                        active_size = 20 - (i * 5)
+                    elif i == 4:  # Clear button
+                        painting.clear()
+                        print("Canvas cleared.")
+
+            # Check if any color button is clicked
             for i in range(len(colors)):
                 if colors[i].collidepoint(event.pos):
                     active_color = rgbs[i]  

@@ -10,7 +10,7 @@ HEIGHT = 600
 active_size = 5  
 active_color = 'white'
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
-pygame.display.set_caption('Power You')
+pygame.display.set_caption('Vision')
 painting = []
 recognizer = sr.Recognizer()
 is_listening = False  # Track if speech recognition is active

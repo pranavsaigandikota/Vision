@@ -7,8 +7,8 @@ face_mesh_landmarks = mediapipe.solutions.face_mesh.FaceMesh(refine_landmarks=Tr
 cam = cv2.VideoCapture(0)
 
 # Set lower resolution for the camera
-cam.set(cv2.CAP_PROP_FRAME_WIDTH, 480)  # Set width to 640 pixels
-cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)  # Set height to 480 pixels
+cam.set(cv2.CAP_PROP_FRAME_WIDTH, 240)  # Set width to 640 pixels
+cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 240)  # Set height to 480 pixels
 
 screen_w, screen_h = pyautogui.size()
 click_held = False

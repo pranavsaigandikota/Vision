@@ -3,7 +3,7 @@ import speech_recognition as sr
 import threading
 
 pygame.init()
-fps = 120
+fps = 60
 timer = pygame.time.Clock()
 WIDTH = 800
 HEIGHT = 600
@@ -78,16 +78,16 @@ def listen_for_command():
                 print(f"Color changed to: {mytext}")
 
             if "small" in mytext:
-                active_size = 5
+                active_size = 10
                 print("Brush size set to small")
             elif "medium" in mytext:
-                active_size = 10
+                active_size = 15
                 print("Brush size set to medium")
             elif "large" in mytext:
-                active_size = 15
+                active_size = 25
                 print("Brush size set to large")
             elif "extra large" in mytext:
-                active_size = 20
+                active_size = 50
                 print("Brush size set to extra large")
 
         except sr.UnknownValueError:

@@ -1,4 +1,4 @@
-# PowerYou
+# Vision
 App for Drawing with you Eyes and Voice
 Made by the amazing team: Pranavsai Gandikota, Arwa Arshad Ali, David Navarrete Peter-Karl Jackson
 

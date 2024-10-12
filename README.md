@@ -2,6 +2,9 @@
 App for Drawing with you Eyes and Voice
 Made by the amazing team: Pranavsai Gandikota, Arwa Arshad Ali, David Navarrete Peter-Karl Jackson
 
+HOW TO RUN
+If you would like to try it, you would need to change the file paths in the batch file and install the required libraries
+
 Inspiration
 The idea for Vision came from the goal of creating an inclusive platform that empowers individuals, particularly those with limited mobility, to express their artistic creativity. By utilizing advanced technologies such as eye tracking and voice recognition, our aim is to remove barriers in digital art creation, making it accessible to all.
 
